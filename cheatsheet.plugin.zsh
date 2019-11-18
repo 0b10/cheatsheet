@@ -107,23 +107,25 @@ function __cs_list_cheatsheets() {
     ls $__CS_SHEETS | sort
 }
 
-case "$1" in
-    "help"|"-h"|"--help")
-        __cs_help
-    ;;
-    "add"|"-a"|"--add"|"create"|"-c"|"--create")
-        __cs_add_cheatsheet $2
-    ;;
-    "edit"|"-e"|"--edit")
-        __cs_edit_cheatsheet $2
-    ;;
-    "remove"|"-r"|"--remove"|"del"|"delete"|"-d"|"--delete"|"--del")
-        __cs_remove_cheatsheet $2
-    ;;
-    "list"|"show"|"ls"|"-l"|"--list")
-        __cs_list_cheatsheets
-    ;;
-    *)
-        __cs_display_cheatsheet $1
-    ;;
-esac
+function cs() {
+    case "$1" in
+        "help"|"-h"|"--help")
+            __cs_help
+        ;;
+        "add"|"-a"|"--add"|"create"|"-c"|"--create")
+            __cs_add_cheatsheet $2
+        ;;
+        "edit"|"-e"|"--edit")
+            __cs_edit_cheatsheet $2
+        ;;
+        "remove"|"-r"|"--remove"|"del"|"delete"|"-d"|"--delete"|"--del")
+            __cs_remove_cheatsheet $2
+        ;;
+        "list"|"show"|"ls"|"-l"|"--list")
+            __cs_list_cheatsheets
+        ;;
+        *)
+            __cs_display_cheatsheet $1
+        ;;
+    esac
+}
