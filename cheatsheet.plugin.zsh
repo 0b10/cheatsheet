@@ -20,7 +20,9 @@ function __cs_help() {
 
 function __cs_display_cheatsheet() {
     # $1 is sheet name
-    echo "displaying cheatsheet $1"
+    local sheet="${__CS_SHEETS}/${1}"
+    
+    cat $sheet | grep -vE '^#'; # ignore comments
 }
 
 function __cs_add_cheatsheet() {

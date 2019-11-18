@@ -4,8 +4,7 @@
 # * Try to keep descriptions within a single line.
 # * You need to add the name of the cheat sheet to the array, within the plugin init script.
 # * Change the function and alias names
-
-
+#
 SECTION
 -------
 <description>                   : <command>
