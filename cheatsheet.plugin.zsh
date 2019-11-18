@@ -1,5 +1,14 @@
 #!/usr/bin/zsh
 
+__CS_LOCAL_DIR="$(dirname $0)/";
+__CS_TEMPLATE="${__CS_LOCAL_DIR}/cheatsheet.template.txt";
+__CS_SHEETS="${HOME}/.config/cs-omzsh/sheets/";
+
+if [[ ! -e "$__CS_SHEETS" ]]; then
+    # make a storage location for sheets
+    mkdir -p ${__CS_SHEETS};
+fi
+
 function __cs_help() {
     echo "help menu"
 }
