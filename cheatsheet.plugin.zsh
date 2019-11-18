@@ -32,7 +32,7 @@ function __cs_help() {
     echo -e "        show, ls"
     echo -e "    remove, -r, --remove \t remove an existing cheatsheet"
     echo -e "        delete, -d, --delete"
-    echo -e "        del, --del"
+    echo -e "        del, rm, --del"
     
     echo -e "\nExamples:"
     echo -e "    cs add my-cheatsheet"
@@ -118,7 +118,7 @@ function cs() {
         "edit"|"-e"|"--edit")
             __cs_edit_cheatsheet $2
         ;;
-        "remove"|"-r"|"--remove"|"del"|"delete"|"-d"|"--delete"|"--del")
+        "remove"|"rm"|"-r"|"--remove"|"del"|"delete"|"-d"|"--delete"|"--del")
             __cs_remove_cheatsheet $2
         ;;
         "list"|"show"|"ls"|"-l"|"--list")
