@@ -15,12 +15,43 @@ if [[ ! -e "$__CS_SHEETS" ]]; then
 fi
 
 function __cs_help() {
-    echo "help menu"
+    echo -e "Usage: cs [OPTION] [CHEATSHEET NAME]";
+    
+    echo -e "\nYou can view an existing cheatsheet by providing the sheet"
+    echo -e " name as the only arg: 'cs my-cheatsheet'"
+    
+    echo -e "\nOptions:"
+    
+    echo -e "    help, -h, --help \t\t show this help menu"
+    
+    echo -e "    add, -a, --add, \t\t create a new cheatsheet"
+    echo -e "        create, -c, --create"
+    
+    echo -e "    edit, -e, --edit \t\t edit an existing cheatsheet"
+    echo -e "    list, -l, --list \t\t list all existing cheatsheets"
+    echo -e "        show, ls"
+    echo -e "    remove, -r, --remove \t remove an existing cheatsheet"
+    echo -e "        delete, -d, --delete"
+    echo -e "        del, --del"
+    
+    echo -e "\nExamples:"
+    echo -e "    cs add my-cheatsheet"
+    echo -e "    cs list"
+    echo -e "    cs my-cheatsheet"
+    echo -e "    cs edit my-cheatsheet"
+    echo -e "    cs remove my-cheatsheet"
+    echo -e ""
 }
 
 function __cs_display_cheatsheet() {
     # $1 is sheet name
     local sheet="${__CS_SHEETS}/${1}"
+    
+    if [ ! -f $sheet ]; then
+        echo "cs: cheatsheet does not exist -- '${1}'";
+        echo "Try 'cs list' to get a list of existing cheatsheets.";
+        return 1;
+    fi
     
     cat $sheet | grep -vE '^#'; # ignore comments
 }
@@ -80,7 +111,7 @@ case "$1" in
     "help"|"-h"|"--help")
         __cs_help
     ;;
-    "add"|"-a"|"--add")
+    "add"|"-a"|"--add"|"create"|"-c"|"--create")
         __cs_add_cheatsheet $2
     ;;
     "edit"|"-e"|"--edit")
