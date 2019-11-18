@@ -37,9 +37,18 @@ function __cs_add_cheatsheet() {
 }
 
 function __cs_edit_cheatsheet() {
-    [ -e $1 ] && echo "cs: you must provide a cheatsheet name" && return 1
     # $1 is sheet name
-    echo "editing cheatsheet $1"
+    [ -e $1 ] && echo "cs: you must provide a cheatsheet name" && return 1;
+    
+    local sheet="${__CS_SHEETS}/${1}"
+    
+    if [ ! -e $sheet ]; then
+        echo "cs: cheatsheet does not exist -- '${1}'";
+        echo "Try 'cs list' to get a list of existing cheatsheets.";
+        return 1;
+    fi
+    
+    $__CS_EDITOR $sheet
 }
 
 function __cs_list_cheatsheets() {
