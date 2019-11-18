@@ -60,8 +60,8 @@ function __cs_add_cheatsheet() {
     # $1 is sheet name
     local sheet="${__CS_SHEETS}/${1}"
     
-    [ -e $1 ] && echo "cs: you must provide a cheatsheet name" && return 1;
-    [ -e $sheet ] && echo "cs: cheatsheet already exists -- '${1}'" && return 1;
+    [ -z $1 ] && echo "cs: you must provide a cheatsheet name" && return 1;
+    [ -f $sheet ] && echo "cs: cheatsheet already exists -- '${1}'" && return 1;
     
     cp $__CS_TEMPLATE $sheet;
     $__CS_EDITOR $sheet;
@@ -90,11 +90,11 @@ function __cs_remove_cheatsheet() {
 
 function __cs_edit_cheatsheet() {
     # $1 is sheet name
-    [ -e $1 ] && echo "cs: you must provide a cheatsheet name" && return 1;
+    [ -z $1 ] && echo "cs: you must provide a cheatsheet name" && return 1;
     
     local sheet="${__CS_SHEETS}/${1}"
     
-    if [ ! -e $sheet ]; then
+    if [ ! -f $sheet ]; then
         echo "cs: cheatsheet does not exist -- '${1}'";
         echo "Try 'cs list' to get a list of existing cheatsheets.";
         return 1;
