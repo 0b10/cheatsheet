@@ -38,7 +38,10 @@ function __cs_edit_cheatsheet() {
     [ -e $1 ] && echo "cs: you must provide a cheatsheet name" && return 1
     # $1 is sheet name
     echo "editing cheatsheet $1"
-    
+}
+
+function __cs_list_cheatsheets() {
+    ls $__CS_SHEETS | sort
 }
 
 case "$1" in
@@ -50,6 +53,9 @@ case "$1" in
     ;;
     "edit"|"-e"|"--edit")
         __cs_edit_cheatsheet $2
+    ;;
+    "list"|"show"|"ls"|"-l"|"--list")
+        __cs_list_cheatsheets
     ;;
     *)
         __cs_display_cheatsheet $1
