@@ -6,6 +6,8 @@
 #   * Try to keep descriptions within a single line.
 #
 # The cheatsheet will be displayed exactly as you see it here - as a flat text file.
+# Comments are ignored, but only if they occupy the entire line on their own -
+#  trailing comments are not ignored.
 #
 SECTION
 -------
