@@ -1,9 +1,11 @@
-# * Keep columns 8 tabs apart.
-# * Provide a space after each section.
-# * Underlines are the width of the word.
-# * Try to keep descriptions within a single line.
-# * You need to add the name of the cheat sheet to the array, within the plugin init script.
-# * Change the function and alias names
+# Some guidance, but not absolutely necessary:
+#
+#   * Keep columns 8 tabs apart.
+#   * Provide a space after each section.
+#   * Underlines are the width of the word.
+#   * Try to keep descriptions within a single line.
+#
+# The cheatsheet will be displayed exactly as you see it here - as a flat text file.
 #
 SECTION
 -------
