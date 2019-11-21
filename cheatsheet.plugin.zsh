@@ -2,7 +2,7 @@
 
 __CS_LOCAL_DIR="$(dirname $0)/";
 __CS_TEMPLATE="${__CS_LOCAL_DIR}/cheatsheet.template.txt";
-__CS_SHEETS="${HOME}/.config/cs-omzsh/sheets";
+__CS_SHEETS="${HOME}/.config/cs-zsh/sheets";
 __CS_EDITOR=$EDITOR;
 
 if [[ ! -e $EDITOR ]]; then
